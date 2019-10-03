@@ -1,11 +1,12 @@
 <div>
-    <h1>menu</h1>
-    <button (click)="onMenu('view1')">view1</button>
-    <button (click)="onMenu('view2')">view2</button>
-    <button (click)="onMenu('view3')">view3</button>
+    <h1>Practice Angular</h1>
+    <button (click)="onMenu('view1')">ngrx</button>
+    <button (click)="onMenu('view2')">utils</button>
+    <button (click)="onMenu('view3')">axios</button>
     <hr>
-    <app-view1 *ngIf="mainData.menuName === 'view1'; else view2" [mainData]="mainData" [mainFunction]="mainFunction">
-    </app-view1>
+    <app-my-counter *ngIf="mainData.menuName === 'view1'; else view2" [mainData]="mainData"
+        [mainFunction]="mainFunction">
+    </app-my-counter>
     <app-view2 #view2 *ngIf="mainData.menuName === 'view2'; else view3"></app-view2>
     <app-view3 #view3 *ngIf="mainData.menuName === 'view3'"></app-view3>
 </div>

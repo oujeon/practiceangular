@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { createAction } from '@ngrx/store';
 
 @Component({
   selector: 'app-view1',
