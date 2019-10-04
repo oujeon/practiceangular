@@ -2,6 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Increment, Decrement, Reset } from './view4.actions';
+
+import { View4Model } from './view4.model';
+
+export interface View4AppState {
+    readonly view4model: View4Model[];
+}
+
 @Component({
     selector: 'app-view4',
     templateUrl: './view4.component.html',
@@ -13,12 +20,33 @@ export class View4Component implements OnInit {
     @Input() mainFunction: any;
     ngOnInit() {
     }
-    count$: Observable<number>;
-    constructor(private store: Store<{ count: number }>) {
-        this.count$ = store.pipe(select('count'));
+    count: Observable<View4Model[]>;
+    constructor(private store: Store<View4AppState>) {
+
+        this.count = this.store.select(state => state.view4model);
+
     }
+    // constructor(private store: Store<AppState>) { }
+
+    // addCoin(name, price) {
+    //   this.store.dispatch({
+    //     type: 'ADD_COIN',
+    //     payload: <Blockchain> {
+    //       name: name,
+    //       price: price
+    //     }
+    //   });
+    // }
+
+
+    //
     increment() {
-        this.store.dispatch(new Increment());
+        this.store.dispatch({
+            type: 'ADD_COIN',
+            payload: <View4Model>{
+                counter: 1
+            }
+        });
     }
     decrement() {
         this.store.dispatch(new Decrement());
