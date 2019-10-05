@@ -1,1 +1,12 @@
-<p>view3 works!</p>
+<p>HttpClient</p>
+<p>https://stackblitz.com/edit/angular5-http-client-service-demo</p>
+<button (click)="onHttpclient()">HttpClient</button>
+
+<table *ngIf="userList">
+    <tr *ngFor="let item of userList">
+        <td>{{ item.email }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.website }}</td>
+    </tr>
+</table>

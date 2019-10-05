@@ -2,9 +2,8 @@
     <h1>Practice Angular</h1>
     <button (click)="onMenu('view1')">mainData</button>
     <button (click)="onMenu('view2')">utils</button>
-    <button (click)="onMenu('view3')">axios</button>
+    <button (click)="onMenu('view3')">httprequest</button>
     <button (click)="onMenu('view4')">ngrx</button>
-    <hr>
     <hr>
     <app-view1 *ngIf="mainData.menuName === 'view1'; else view2"></app-view1>
     <app-view2 #view2 *ngIf="mainData.menuName === 'view2'; else view3"></app-view2>
